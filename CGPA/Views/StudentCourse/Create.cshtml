@@ -1,0 +1,64 @@
+﻿@model CGPA.Dtos.CreateStudentCourseRequestModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<form method="POST">
+        @for (int i = 0; i < ViewBag.courseCount; i++)
+        {
+            <div class="form-row">
+                <div class="col-md-6">
+                    <label asp-for="CoursesIds[i]" class="control-label">Course</label>
+                    <select asp-for="CoursesIds[i]" class="form-control" asp-items="ViewBag.courses" required>
+                        <option value="">Select Course</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label asp-for="Scores[i]" class="control-label">Score</label>
+                    <input asp-for="Scores[i]" type="text" class="form-control" />
+                </div>
+            </div>
+        }
+
+        <br>
+        <div>
+            <button type="submit">Create</button>
+        </div>
+
+    </form>
+
+
+@*<form method="POST">
+    @{
+        var courses = ViewBag.studentCourses;
+    }
+
+    <table class="table table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Courses</th>
+                <th>Scores</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < ViewBag.courseCount; i++)
+            {
+                <tr>
+                    <th>@courses[i].Name</th>
+                    <th>
+                        <input asp-for="Scores[i]" type="text" class="form-control" />
+                    </th>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    <div>
+        <button type="submit">Create</button>
+    </div>
+</form>*@

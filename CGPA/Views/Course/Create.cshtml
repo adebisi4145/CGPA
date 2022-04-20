@@ -1,0 +1,27 @@
+﻿@model CGPA.Models.Course
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h3>Fill in the details below to create a department</h3>
+<form method="POST">
+    <div class="col-md-6">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input asp-for="Name" type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="CourseCode" class="control-label">Course Code</label>
+        <input asp-for="CourseCode" type="number" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Unit" class="control-label">Unit</label>
+        <input asp-for="Unit" type="number" class="form-control" />
+    </div>
+    <br>
+    <div>
+        <button type="submit">Create</button>
+    </div>
+
+</form>

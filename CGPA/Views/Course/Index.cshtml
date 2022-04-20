@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CGPA.Models.Course>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="card-header" style="background-color: whitesmoke;">
+    <div class="card-title">
+        <h1 class="text-center">Courses</h1>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseCode)
+            </th>
+            
+
+
+            <th>
+                Edit
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var course in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => course.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => course.CourseCode)
+            </td>
+
+            <td>
+                <a asp-action="Edit" asp-route-id="@course.Id">Edit</a>
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@course.Id">Details</a>
+            </td>
+            <td>
+                <a asp-action="Delete" asp-route-id="@course.Id">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<button style="background-color: whitesmoke;"><a asp-action="Create">Create New</a></button>

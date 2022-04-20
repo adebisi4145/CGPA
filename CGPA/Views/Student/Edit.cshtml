@@ -1,0 +1,26 @@
+﻿@model CGPA.Dtos.StudentModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h3>Check the details carefully before clicking on the Update button</h3>
+<br>
+<form method="POST">
+    <div class="col-md-6">
+        <label asp-for="FirstName" class="control-label">First Name</label>
+        <input asp-for="FirstName" type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="LastName" class="control-label">Last Name</label>
+        <input asp-for="LastName" type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="DepartmentId" class="control-label">Department</label>
+        <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.departments" required>
+            <option value="">Select Department</option>
+        </select>
+    </div>
+    <button type="submit">Update</button>
+</form>

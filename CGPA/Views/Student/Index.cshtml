@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CGPA.Models.Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="card-header" style="background-color: whitesmoke;">
+    <div class="card-title">
+        <h1 class="text-center">Students</h1>
+    </div>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+
+
+            <th>
+                Edit
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Delete
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => department.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => department.FirstName)
+                </td>
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@department.Id">Edit</a>
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@department.Id">Details</a>
+                </td>
+                <td>
+                    <a asp-action="Delete" asp-route-id="@department.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@*<button style="background-color: whitesmoke;"><a asp-action="Create">Create New</a></button>*@

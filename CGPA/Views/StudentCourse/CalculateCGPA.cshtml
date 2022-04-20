@@ -1,0 +1,101 @@
+﻿@model CGPA.Dtos.StudentCourseRequestModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="card-header" style="background-color: whitesmoke;">
+    <div class="card-title">
+        <h1 class="text-center">Student Details</h1>
+    </div>
+    </div>
+
+    @*@{
+            var courses = ViewBag.studentCourses;
+        }
+        <table class="table table-striped" method="Post">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Course</th>
+                    <th>Course Code</th>
+                    <th>Unit</th>
+                    <th>Score</th>
+                    <th>GradePoint</th>
+                    <th>Total Unit</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int i = 0;
+                    int j = 0;
+                }
+
+                @for (i = 0, j = 0; i < ViewBag.courseCount && j < Model.Count(); i++, j++)
+                {
+                    <tr>
+                        <th>@courses[i].Name</th>
+                        <th>@courses[i].CourseCode</th>
+                        <th>@courses[i].Unit</th>
+                        <th>@Model[j].Score</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                 }
+
+                </tbody>
+        </table>
+    *@
+
+    <table class="table table-striped" method="Post">
+        <thead class="thead-dark">
+            <tr>
+                <th>Course</th>
+                <th>Course Code</th>
+                <th>Unit</th>
+                <th>Score</th>
+                <th>GradePoint</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Courses.Count(); i++)
+            {
+                <tr>
+                    <th>@Model.Courses[i]</th>
+                    <th>@Model.CourseCode[i]</th>
+                    <th>@Model.Units[i]</th>
+                    <th>@Model.Scores[i]</th>
+                    <th>@Model.GradePoints[i]</th>
+                    <th>@Model.Points[i]</th>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+<br />
+<div class="col-sm-6">
+    <div class="card">
+        <h3 class="card-header bg-dark text-white text-center">GPA</h3>
+        <div class="card-body">
+            <dl class="row">
+                <dd class="col-6"><strong>Total Units</strong></dd>
+                <dt class="col-6">
+                    @Model.TotalUnits
+                </dt>
+                <dd class="col-6"><strong>Total Points</strong></dd>
+                <dt class=" col-6">
+                    @Model.TotalPoints
+                </dt>
+                <dd class="col-6"><strong>GPA</strong></dd>
+                <dt class="col-6">
+                    @Model.GPA 
+                </dt>
+            </dl>
+        </div>
+    </div>
+</div>
+
+   

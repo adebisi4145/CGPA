@@ -1,0 +1,38 @@
+﻿@model CGPA.Dtos.CreateStudentRequestModel
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+<h3>Please fill in this form to create an account</h3>
+<form method="POST">
+    <div class="col-md-6">
+        <label asp-for="FirstName" class="control-label">First Name</label>
+        <input asp-for="FirstName" type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="LastName" class="control-label">Last Name</label>
+        <input asp-for="LastName" type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Email" class="control-label">Email</label>
+        <input asp-for="Email" type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="DepartmentId" class="control-label">Department</label>
+        <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.departments" required>
+            <option value="">Select Department</option>
+        </select>
+    </div>
+    <div class="col-md-6">
+        <label asp-for="PasswordHash" class="control-label">Password</label>
+        <input asp-for="PasswordHash" type="text" class="form-control" />
+    </div>
+    <br>
+    <div>
+        <button type="submit">Sign Up</button>
+    </div>
+
+</form>

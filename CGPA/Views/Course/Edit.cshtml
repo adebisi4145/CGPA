@@ -1,0 +1,25 @@
+﻿@model CGPA.Dtos.CourseModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+<h3>Check the details carefully before clicking on the Update button</h3>
+<br>
+<form method="POST">
+    <div class="col-md-6">
+        <label class="control-label">Name</label>
+        <input name="name" value="@Model.Name" type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label class="control-label">Course Code</label>
+        <input name="CourseCode" value="@Model.CourseCode" type="number" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label class="control-label">Unit</label>
+        <input name="Unit" value="@Model.Unit" type="number" class="form-control" />
+    </div>
+
+    <button type="submit">Update</button>
+</form>

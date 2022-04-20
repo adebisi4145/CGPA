@@ -1,0 +1,25 @@
+﻿@model CGPA.Dtos.DepartmentModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<h3>Fill in the details below to create a department</h3>
+<form method="POST">
+    <div class="col-md-6">
+        <label asp-for="Name" class="control-label">Name</label>
+        <input asp-for="Name" type="text" class="form-control" />
+    </div>
+    <div class="col-md-6">
+        <label asp-for="Courses" class="control-label">Courses</label>
+        <select asp-for="Courses" class="form-control" asp-items="ViewBag.courses" multiple required>
+            <option value="">Select Courses</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <button type="submit">Create</button>
+    </div>
+
+</form>
